@@ -50,9 +50,10 @@
   .hero-video-wrap {
     position: absolute; inset: 0; z-index: 0; overflow: hidden;
   }
-  .hero-video-wrap iframe {
+  .hero-video-wrap video {
     position: absolute; top: 50%; left: 50%;
-    width: 120vw; height: 120vh; min-width: 120vw; min-height: 120vh;
+    width: 100%; height: 100%;
+    object-fit: cover;
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
@@ -489,7 +490,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-video-wrap" id="heroVideoWrap">
-    <img id="heroThumb" src="https://img.youtube.com/vi/RvCXw4RVgwg/hqdefault.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+    <video autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
     <div class="hero-video-overlay"></div>
   </div>
   <div class="hero-bg"></div>
@@ -1221,23 +1224,6 @@
 </footer>
 
 <script>
-  // Hero video - load YouTube iframe after page ready
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      var wrap = document.getElementById('heroVideoWrap');
-      if (wrap) {
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube.com/embed/RvCXw4RVgwg?autoplay=1&mute=1&loop=1&playlist=RvCXw4RVgwg&controls=0&showinfo=0&modestbranding=1&playsinline=1&rel=0';
-        iframe.frameBorder = '0';
-        iframe.allow = 'autoplay; encrypted-media';
-        iframe.style.cssText = 'position:absolute; top:50%; left:50%; width:120vw; height:120vh; min-width:120vw; min-height:120vh; transform:translate(-50%,-50%); pointer-events:none;';
-        var thumb = document.getElementById('heroThumb');
-        if (thumb) thumb.style.display = 'none';
-        wrap.insertBefore(iframe, wrap.firstChild);
-      }
-    }, 1000);
-  });
-
   // Navbar scroll
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
