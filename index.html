@@ -73,7 +73,7 @@
     transition: background 0.4s, backdrop-filter 0.4s;
   }
   nav.scrolled {
-    background: rgba(10,10,12,0.92);
+    background: rgba(10,10,12,0.4);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(212,146,42,0.1);
   }
@@ -455,7 +455,11 @@
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .mobile-toggle { display: block; }
-    section { padding: 4rem 1.5rem; }
+    .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,10,12,0.95); padding: 1rem; gap: 1rem; }
+    .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+     section { padding: 4rem 1.5rem; }
     .hero { padding: 0 1.5rem 4rem; }
     .hero h1 { font-size: clamp(3rem, 12vw, 5rem); }
     .hero-actions { flex-direction: column; }
@@ -1254,7 +1258,22 @@
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
+// Mobile menu toggle
+const mobileToggle = document.querySelector('.mobile-toggle');
+const navLinks = document.querySelector('.nav-links');
 
+mobileToggle.addEventListener('click', () => {
+    mobileToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
