@@ -357,12 +357,12 @@
     color: var(--cream-dim); margin-bottom: 3rem; position: relative; z-index: 2;
   }
   .hh-pricing-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
     max-width: 800px; margin: 0 auto 3rem; position: relative; z-index: 2;
   }
   .hh-price-card {
     background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04); border-radius: 4px;
-    padding: 1.5rem 1rem; transition: all 0.3s;
+    padding: 1.5rem 1rem; transition: all 0.3s; flex: 0 1 180px;
   }
   .hh-price-card:hover { border-color: rgba(212,146,42,0.2); }
   .hh-price-card h4 {
