@@ -289,6 +289,30 @@
   .special-price { font-family: var(--font-display); font-size: 1.8rem; color: var(--amber); letter-spacing: 1px; }
   .special-card p { color: var(--gray-light); font-size: 0.8rem; line-height: 1.5; margin-top: 0.5rem; font-weight: 300; }
 
+  /* ============ SPECIALTY DRINKS ============ */
+  .specialty-drinks { background: var(--bg-dark); text-align: center; padding: 7rem 3rem; }
+  .specialty-drinks .section-label { justify-content: center; }
+  .specialty-drinks .section-label::before { display: none; }
+  .specialty-drinks .section-desc { margin-left: auto; margin-right: auto; text-align: center; max-width: 600px; }
+  .drinks-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .drink-card {
+    background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 4px; padding: 1.5rem; text-align: left; transition: all 0.4s; position: relative; overflow: hidden;
+  }
+  .drink-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--amber); transform: scaleX(0); transition: transform 0.4s;
+  }
+  .drink-card:hover::before { transform: scaleX(1); }
+  .drink-card:hover { border-color: rgba(212,146,42,0.15); transform: translateY(-3px); }
+  .drink-card h4 {
+    font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.4rem; color: var(--cream);
+  }
+  .drink-card p { color: var(--gray-light); font-size: 0.8rem; line-height: 1.5; font-weight: 300; }
+
   /* ============ STORY ============ */
   .story { background: var(--bg-deep); overflow: hidden; }
   .story-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
@@ -466,6 +490,7 @@
     .events-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
     .events-grid { grid-template-columns: 1fr; }
     .specials-grid { grid-template-columns: 1fr; }
+    .drinks-grid { grid-template-columns: 1fr; }
     .menu-tabs { gap: 0.2rem; }
     .menu-tab { font-size: 0.65rem; padding: 0.5rem 0.8rem; }
     .hh-pricing-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1145,6 +1170,63 @@
   <a href="#menu" class="btn btn-primary">See Happy Hour Items →</a>
 </section>
 
+<!-- SPECIALTY DRINKS -->
+<section class="specialty-drinks" id="specialty-drinks">
+  <div class="section-label">HANDCRAFTED</div>
+  <h2 class="section-title">SPECIALTY DRINKS</h2>
+  <p class="section-desc" style="margin-bottom: 3rem;">Crafted in-house with fresh ingredients — our signature cocktails are what keep people coming back.</p>
+  <div class="drinks-grid">
+    <div class="drink-card">
+      <h4>Cove Margarita</h4>
+      <p>Tequila, Lime Juice, Agave Syrup, Cointreau</p>
+    </div>
+    <div class="drink-card">
+      <h4>Strawberry Margarita</h4>
+      <p>Tequila, Lime Juice, Agave Syrup, Cointreau, Strawberry Syrup</p>
+    </div>
+    <div class="drink-card">
+      <h4>S.J.H. Margarita</h4>
+      <p>Tequila, Lime Juice, Agave Syrup, Cointreau, Strawberry/Jalapeño/Hibiscus Shrub</p>
+    </div>
+    <div class="drink-card">
+      <h4>CoCo-Rita</h4>
+      <p>Tequila, Lime Juice, Simple Syrup, Crème of Coconut</p>
+    </div>
+    <div class="drink-card">
+      <h4>Mango-Rita</h4>
+      <p>Tequila, Lime Juice, Simple Syrup, Mango Purée</p>
+    </div>
+    <div class="drink-card">
+      <h4>Jalapeño & Coconut Marg</h4>
+      <p>Tequila, Lime Juice, Jalapeño Simple Syrup, Crème of Coconut, Jalapeños</p>
+    </div>
+    <div class="drink-card">
+      <h4>Cougar Juice</h4>
+      <p>Vodka, Raspberry Syrup, Lemon Juice, Simple Syrup</p>
+    </div>
+    <div class="drink-card">
+      <h4>Cove Cosmo</h4>
+      <p>Vodka, Cranberry Juice, Simple Syrup, Cointreau, Lime Juice</p>
+    </div>
+    <div class="drink-card">
+      <h4>Cove Lemon Drop</h4>
+      <p>Vodka, Lemon Juice, Simple Syrup, Cointreau</p>
+    </div>
+    <div class="drink-card">
+      <h4>Raspberry Mule</h4>
+      <p>Vodka, Raspberry Syrup, Ginger Beer</p>
+    </div>
+    <div class="drink-card">
+      <h4>Cove Fashioned</h4>
+      <p>Whiskey, Simple Syrup, Bitters</p>
+    </div>
+    <div class="drink-card">
+      <h4>Long Island</h4>
+      <p>Vodka, Rum, Gin, Tequila, Cointreau, Simple Syrup, Lemon Juice</p>
+    </div>
+  </div>
+</section>
+
 <!-- CATERING -->
 <section class="catering">
   <div class="catering-layout">
@@ -1251,7 +1333,7 @@ style="height: 100px; width: auto; opacity: 0.7;"></a>
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  document.querySelectorAll('.event-card, .special-card, .menu-item, .story-layout > div, .catering-layout > div, .hh-price-card').forEach(el => {
+  document.querySelectorAll('.event-card, .special-card, .menu-item, .story-layout > div, .catering-layout > div, .hh-price-card, .drink-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
