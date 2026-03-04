@@ -1444,13 +1444,14 @@ navLinks.querySelectorAll('a').forEach(link => {
   @media (max-width: 768px) {
     #chatbot-window {
       position: fixed; left: 0.75rem; right: 0.75rem;
-      top: 50%; bottom: auto; transform: translateY(-55%);
+      top: 8rem; bottom: auto; transform: none;
       width: auto; max-height: none; height: auto;
-      border-radius: 10px; z-index: 10000;
+      border-radius: 10px; z-index: 99999;
       overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
     }
     #chatbot-messages { max-height: 25vh; min-height: 80px; flex: 1; overflow-y: auto; }
-    #chatbot-toggle { bottom: 5rem; right: 1rem; z-index: 9998; }
+    #chatbot-toggle { bottom: 5rem; right: 1rem; z-index: 99998; }
     #chatbot-input-area { padding: 0.6rem 0.75rem; }
   }
 </style>
