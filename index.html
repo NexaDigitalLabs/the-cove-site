@@ -470,6 +470,9 @@
     .menu-tabs { gap: 0.2rem; }
     .menu-tab { font-size: 0.65rem; padding: 0.5rem 0.8rem; }
     .hh-pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .specialty-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.5rem !important; }
+    .specialty-grid .hh-price-card h4 { font-size: 0.6rem !important; }
+    .specialty-grid .hh-price-card p { font-size: 0.65rem !important; }
     .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
     .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
     .menu-top-bar { flex-direction: column; align-items: flex-start; }
@@ -1146,6 +1149,67 @@
   <a href="#menu" class="btn btn-primary">See Happy Hour Items →</a>
 </section>
 
+<!-- SPECIALTY DRINKS -->
+<section style="padding: 5rem 3rem; text-align: center;">
+  <div class="section-label" style="justify-content: center;">
+    <span>CRAFT COCKTAILS</span>
+  </div>
+  <h2 class="section-title" style="text-align: center;">SPECIALTY DRINKS</h2>
+  <p class="section-desc" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+    Handcrafted cocktails made fresh — from our signature margaritas to classic favorites.
+  </p>
+  <div class="specialty-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 900px; margin: 0 auto;">
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Cove Margarita</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Tequila, Lime Juice, Agave Syrup, Cointreau</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Strawberry Margarita</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Tequila, Lime Juice, Agave Syrup, Cointreau, Strawberry Syrup</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">S.J.H. Margarita</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Tequila, Lime Juice, Agave Syrup, Cointreau, Strawberry/Jalapeño/Hibiscus Shrub</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">CoCo-Rita</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Tequila, Lime Juice, Simple Syrup, Crème of Coconut</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Mango-Rita</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Tequila, Lime Juice, Simple Syrup, Mango Purée</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Jalapeño & Coconut Marg</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Tequila, Lime Juice, Jalapeño Simple Syrup, Crème of Coconut, Jalapeños</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Cougar Juice</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Vodka, Raspberry Syrup, Lemon Juice, Simple Syrup</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Cove Cosmo</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Vodka, Cranberry Juice, Simple Syrup, Cointreau, Lime Juice</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Cove Lemon Drop</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Vodka, Lemon Juice, Simple Syrup, Cointreau</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Raspberry Mule</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Vodka, Raspberry Syrup, Ginger Beer</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Cove Fashioned</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Whiskey, Simple Syrup, Bitters</p>
+    </div>
+    <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
+      <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Long Island</h4>
+      <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Vodka, Rum, Gin, Tequila, Cointreau, Simple Syrup, Lemon Juice</p>
+    </div>
+  </div>
+</section>
+
 <!-- CATERING -->
 <section class="catering">
   <div class="catering-layout">
@@ -1537,7 +1601,8 @@ async function sendChat() {
 
     const botDiv = document.createElement('div');
     botDiv.className = 'chat-msg bot-msg';
-    botDiv.textContent = data.reply || 'Sorry, something went wrong. Try again!';
+    const replyText = data.reply || 'Sorry, something went wrong. Try again!';
+    botDiv.innerHTML = replyText.replace(/\n/g, '<br>');
     messages.appendChild(botDiv);
   } catch (err) {
     typing.remove();
