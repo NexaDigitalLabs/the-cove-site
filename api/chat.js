@@ -24,8 +24,8 @@ BASICS:
 - The Cove Bar & Grill, 40675 Murrieta Hot Springs Rd, Murrieta, CA 92562
 - Phone: (951) 696-2211
 - Email: info@thecovemurrieta.com
-- Weekday hours: 11am – 1:30am
-- Weekend hours: 9am – 1:30am
+- Weekday hours: 11am – 11:30pm
+- Weekend hours: 9am – 11:30pm
 - Kitchen closes Sun–Thu at 9pm, Fri–Sat at 11pm
 - Brunch: Sat & Sun 9am–2:30pm
 - Happy Hour: Daily 3pm–7pm
