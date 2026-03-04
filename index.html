@@ -1443,18 +1443,30 @@ navLinks.querySelectorAll('a').forEach(link => {
 
   @media (max-width: 768px) {
     #chatbot-window {
-      position: fixed; left: 0.75rem; right: 0.75rem; bottom: auto; top: auto;
-      top: 6rem; transform: none;
-      width: auto; max-height: none; height: auto;
-      border-radius: 8px; z-index: 10000;
+      position: fixed; left: 0.75rem; right: 0.75rem;
+      bottom: 0.75rem; top: auto; transform: none;
+      width: auto; max-height: 45vh; height: auto;
+      border-radius: 10px; z-index: 10000;
       overflow: hidden;
     }
-    #chatbot-messages { max-height: 30vh; min-height: 100px; flex: 1; overflow-y: auto; }
+    #chatbot-messages { max-height: 25vh; min-height: 80px; flex: 1; overflow-y: auto; }
     #chatbot-toggle { bottom: 5rem; right: 1rem; z-index: 9998; }
+    #chatbot-input-area { padding: 0.6rem 0.75rem; }
   }
 </style>
 
 <script>
+// Keep chatbot above mobile keyboard
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', () => {
+    const win = document.getElementById('chatbot-window');
+    if (win && win.style.display !== 'none') {
+      const keyboardHeight = window.innerHeight - window.visualViewport.height;
+      win.style.bottom = (keyboardHeight + 8) + 'px';
+    }
+  });
+}
+
 function toggleChatbot() {
   const win = document.getElementById('chatbot-window');
   const toggle = document.getElementById('chatbot-toggle');
