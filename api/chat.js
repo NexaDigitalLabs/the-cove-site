@@ -16,7 +16,49 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'API key not configured' });
   }
 
+  // Get current date/time in Pacific Time
+  const now = new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+  const pacificDate = new Date(now);
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const dayName = days[pacificDate.getDay()];
+  const hour = pacificDate.getHours();
+  const minute = pacificDate.getMinutes();
+  const timeStr = pacificDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+  const dateStr = pacificDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+  const isWeekend = (pacificDate.getDay() === 0 || pacificDate.getDay() === 6);
+  const isBrunchTime = isWeekend && hour >= 9 && (hour < 14 || (hour === 14 && minute <= 30));
+  const isHappyHour = hour >= 15 && hour < 19;
+  const isFriSat = (pacificDate.getDay() === 5 || pacificDate.getDay() === 6);
+  const isKitchenOpen = isFriSat ? hour < 23 : hour < 21;
+  const isTacoDay = (pacificDate.getDay() === 2 || pacificDate.getDay() === 4);
+  const isBurgerDay = (pacificDate.getDay() === 1 || pacificDate.getDay() === 3);
+  const isWingWednesday = (pacificDate.getDay() === 3);
+  const isThirstyThursday = (pacificDate.getDay() === 4);
+
+  let currentStatus = `RIGHT NOW: It is ${dayName}, ${dateStr} at ${timeStr} Pacific Time.\n`;
+  if (isHappyHour) currentStatus += `- HAPPY HOUR IS LIVE RIGHT NOW! All HH drink and food prices are active until 7pm.\n`;
+  if (!isHappyHour && hour < 15) currentStatus += `- Happy hour starts at 3pm today.\n`;
+  if (!isHappyHour && hour >= 19) currentStatus += `- Happy hour has ended for today. It runs daily 3-7pm.\n`;
+  if (isBrunchTime) currentStatus += `- BRUNCH IS BEING SERVED RIGHT NOW until 2:30pm.\n`;
+  if (isWeekend && !isBrunchTime && hour < 9) currentStatus += `- Weekend brunch starts at 9am today.\n`;
+  if (isTacoDay) currentStatus += `- IT'S TACO-2-DAY! Tacos $4-$7 and $7 Margaritas available all day.\n`;
+  if (isBurgerDay) currentStatus += `- Today's special: Old School Burger & Fries for $12!\n`;
+  if (isWingWednesday) currentStatus += `- IT'S WHISKEY & WINGS WEDNESDAY! $1 wings + whiskey deals.\n`;
+  if (isThirstyThursday) currentStatus += `- IT'S THIRSTY THURSDAY! Happy hour pricing ALL DAY.\n`;
+  if (!isKitchenOpen) currentStatus += `- The kitchen is currently closed.\n`;
+  if (isKitchenOpen) currentStatus += `- The kitchen is currently open.\n`;
+  if (pacificDate.getDay() === 1) currentStatus += `- Tonight: Trivia Night 7-9pm. Also Dan's Dinner $20 prix-fixe (3-7pm).\n`;
+  if (pacificDate.getDay() === 2) currentStatus += `- Tonight: Bingo Night (free!) + Karaoke with Julian 7-11pm.\n`;
+  if (pacificDate.getDay() === 3) currentStatus += `- Tonight: Country Night with DJ Kermie J Rock 7-11pm, no cover.\n`;
+  if (isFriSat) currentStatus += `- Tonight: Live bands! Check our social media for who's playing.\n`;
+  if (pacificDate.getDay() === 0) currentStatus += `- Tonight: Trivia Night!\n`;
+
   const systemPrompt = `You are The Cove Bar & Grill's friendly virtual concierge. You answer questions about the restaurant warmly and helpfully. Keep responses concise (2-4 sentences max unless listing menu items). Use a casual, welcoming tone. If someone asks something you don't know or that's not about The Cove, politely redirect.
+
+IMPORTANT FORMATTING RULE: When listing multiple items (menu items, drinks, events, specials, etc.), put EACH item on its own new line. Never bunch multiple items together in a single paragraph.
+
+${currentStatus}
 
 HERE IS EVERYTHING ABOUT THE COVE:
 
@@ -24,8 +66,8 @@ BASICS:
 - The Cove Bar & Grill, 40675 Murrieta Hot Springs Rd, Murrieta, CA 92562
 - Phone: (951) 696-2211
 - Email: info@thecovemurrieta.com
-- Weekday hours: 11am – 11:30pm
-- Weekend hours: 9am – 11:30pm
+- Weekday hours: 11am – 1:30am
+- Weekend hours: 9am – 1:30am
 - Kitchen closes Sun–Thu at 9pm, Fri–Sat at 11pm
 - Brunch: Sat & Sun 9am–2:30pm
 - Happy Hour: Daily 3pm–7pm
