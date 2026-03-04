@@ -471,7 +471,8 @@
     .menu-tab { font-size: 0.65rem; padding: 0.5rem 0.8rem; }
     .hh-pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
     .specialty-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.5rem !important; }
-    .specialty-grid .hh-price-card h4 { font-size: 0.6rem !important; }
+    .specialty-grid .hh-price-card { display: flex; flex-direction: column; min-height: 140px; }
+    .specialty-grid .hh-price-card h4 { font-size: 0.7rem !important; }
     .specialty-grid .hh-price-card p { font-size: 0.65rem !important; }
     .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
     .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -1152,13 +1153,14 @@
 <!-- SPECIALTY DRINKS -->
 <section style="padding: 5rem 3rem; text-align: center;">
   <div class="section-label" style="justify-content: center;">
-    <span>CRAFT COCKTAILS</span>
+    <span>HANDCRAFTED</span>
   </div>
   <h2 class="section-title" style="text-align: center;">SPECIALTY DRINKS</h2>
   <p class="section-desc" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
-    Handcrafted cocktails made fresh — from our signature margaritas to classic favorites.
+    Crafted in-house with fresh ingredients — our signature cocktails are what keep people coming back.
   </p>
-  <div class="specialty-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 900px; margin: 0 auto;">
+  <div class="specialty-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1000px; margin: 0 auto;">
+    <style>.specialty-grid .hh-price-card h4 { font-size: 0.95rem !important; }</style>
     <div class="hh-price-card" style="text-align: left; padding: 1.2rem 1.5rem;">
       <h4 style="color: var(--amber); margin-bottom: 0.3rem;">Cove Margarita</h4>
       <p style="font-size: 0.8rem; color: var(--gray-light); font-weight: 300; line-height: 1.5;">Tequila, Lime Juice, Agave Syrup, Cointreau</p>
