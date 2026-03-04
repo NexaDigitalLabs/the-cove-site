@@ -1443,18 +1443,21 @@ navLinks.querySelectorAll('a').forEach(link => {
 
   @media (max-width: 768px) {
     #chatbot-window {
-      position: fixed; left: 0.75rem; right: 0.75rem;
-      top: 6rem; bottom: auto; transform: none;
-      width: auto; max-width: calc(100vw - 1.5rem);
-      max-height: none; height: auto;
+      position: fixed !important;
+      left: 1.25rem !important; right: 1.25rem !important;
+      top: 10rem !important; bottom: auto !important;
+      width: auto !important; max-width: none !important;
+      max-height: none !important; height: auto !important;
+      transform: none !important;
       border-radius: 10px; z-index: 99999;
       overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.8);
     }
-    #chatbot-messages { max-height: 25vh; min-height: 80px; flex: 1; overflow-y: auto; }
+    #chatbot-messages { max-height: 22vh; min-height: 80px; flex: 1; overflow-y: auto; }
     #chatbot-toggle { bottom: 5rem; right: 1rem; z-index: 99998; }
     #chatbot-input-area { padding: 0.6rem 0.75rem; }
-    body.chatbot-open { overflow: hidden; position: fixed; width: 100%; }
+    #chatbot-input { font-size: 16px; }
+    body.chatbot-open { overflow: hidden !important; touch-action: none; }
   }
 </style>
 
@@ -1478,14 +1481,26 @@ function toggleChatbot() {
     win.style.display = 'flex';
     toggle.style.display = 'none';
     if (isMobile) {
+      document.body.dataset.scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${window.scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
       document.body.classList.add('chatbot-open');
-      window.scrollTo(0, 0);
     }
-    document.getElementById('chatbot-input').focus();
+    setTimeout(() => document.getElementById('chatbot-input').focus(), 100);
   } else {
     win.style.display = 'none';
     toggle.style.display = 'flex';
-    if (isMobile) document.body.classList.remove('chatbot-open');
+    if (isMobile) {
+      const scrollY = document.body.dataset.scrollY || 0;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.classList.remove('chatbot-open');
+      window.scrollTo(0, parseInt(scrollY));
+    }
   }
 }
 
