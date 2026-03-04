@@ -1443,11 +1443,12 @@ navLinks.querySelectorAll('a').forEach(link => {
 
   @media (max-width: 768px) {
     #chatbot-window {
-      position: fixed; top: auto; left: 1rem; right: 1rem; bottom: 4rem;
-      width: auto; max-height: 70vh; height: 70vh;
+      position: fixed; left: 1rem; right: 1rem; bottom: auto; top: 50%;
+      transform: translateY(-50%);
+      width: auto; max-height: 50vh; height: auto;
       border-radius: 8px; z-index: 10000;
     }
-    #chatbot-messages { max-height: none; flex: 1; }
+    #chatbot-messages { max-height: 35vh; min-height: 120px; flex: 1; }
     #chatbot-toggle { bottom: 5rem; right: 1rem; z-index: 9998; }
   }
 </style>
