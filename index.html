@@ -27,7 +27,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     background: var(--bg-deep);
     color: var(--cream);
@@ -1444,8 +1444,8 @@ navLinks.querySelectorAll('a').forEach(link => {
   @media (max-width: 768px) {
     #chatbot-window {
       position: fixed; left: 0.75rem; right: 0.75rem;
-      bottom: 0.75rem; top: auto; transform: none;
-      width: auto; max-height: 45vh; height: auto;
+      top: 50%; bottom: auto; transform: translateY(-55%);
+      width: auto; max-height: none; height: auto;
       border-radius: 10px; z-index: 10000;
       overflow: hidden;
     }
