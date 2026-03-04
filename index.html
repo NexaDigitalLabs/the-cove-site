@@ -27,7 +27,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; overflow-x: hidden; }
+  html { scroll-behavior: smooth; }
   body {
     background: var(--bg-deep);
     color: var(--cream);
@@ -273,10 +273,11 @@
 
   /* ============ SPECIALS ============ */
   .specials { background: var(--bg-dark); padding: 5rem 3rem; }
-  .specials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+  .specials-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; margin-top: 3rem; }
   .special-card {
     background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04);
     border-radius: 4px; padding: 2rem; text-align: center; transition: all 0.4s; position: relative; overflow: hidden;
+    flex: 0 1 250px;
   }
   .special-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
